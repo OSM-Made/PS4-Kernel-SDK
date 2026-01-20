@@ -1,0 +1,31 @@
+# Build artifacts
+build/
+*.o
+*.elf
+*.sym
+*.compressed
+*.bin
+
+# Temporary files
+.modinfo.c
+.modinfo.o
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Compiled libraries
+*.a
+*.so
+*.lib
+
+# Debug files
+*.dSYM/
+
+# System files
+Thumbs.db
+desktop.ini
