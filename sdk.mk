@@ -66,6 +66,6 @@ symbols: $(TARGET)
 	@$(OBJCOPY) --add-gnu-debuglink=$(TARGET).sym $(TARGET)
 
 clean:
-	rm -rf $(TARGET) $(TARGET).sym $(TARGET).compressed $(ODIR)
+	rm -rf $(TARGET) $(TARGET).sym $(ODIR)
 
 .PHONY: symbols clean

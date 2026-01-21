@@ -27,23 +27,26 @@ This project is a work in progress. The SDK includes:
 
 ```
 PS4 Kernel SDK/
-├── include/              # Header files
-│   ├── types/            # Kernel type definitions (Proc, VM, FS, etc.)
-│   ├── offsets/          # Firmware-specific symbol offset tables
-│   ├── resolver.h        # Kernel symbol resolver
-│   └── metadata.h        # Module metadata declarations
-├── lib/                  # CRT startup files
-│   └── crt1.c            # Module initialization code
-├── ld/                   # Linker scripts
-│   └── module.ld         # Module linking layout
-├── loader/               # Kernel ELF loader library
-│   ├── include/          # Loader headers
-│   └── source/           # Loader implementation
-├── samples/              # Example modules
-│   ├── hello_world/      # Basic kernel module example
-│   └── userland_payload/ # Userland loader example
-├── sdk.mk                # SDK build configuration
-└── Makefile              # Main build system
+├── include/                  # Header files
+│   ├── types/                # Kernel type definitions (Proc, VM, FS, etc.)
+│   ├── offsets/              # Generated firmware-specific offset headers
+│   ├── resolver.h            # Kernel symbol resolver
+│   └── metadata.h            # Module metadata declarations
+├── offsets/                  # YAML offset configuration files
+├── tools/                    # Build and code generation tools
+│   └── generate_offsets.py   # Generates C headers from YAML
+├── lib/                      # CRT startup files
+│   └── crt1.c                # Module initialization code
+├── ld/                       # Linker scripts
+│   └── module.ld             # Module linking layout
+├── loader/                   # Kernel ELF loader library
+│   ├── include/              # Loader headers
+│   └── source/               # Loader implementation
+├── samples/                  # Example modules
+│   ├── hello_world/          # Basic kernel module example
+│   └── userland_payload/     # Userland loader example
+├── sdk.mk                    # SDK build configuration
+└── Makefile                  # Main build system
 ```
 
 ## Requirements
@@ -53,6 +56,7 @@ PS4 Kernel SDK/
 - **GCC/G++**: Compiler with support for btver2 architecture (PS4 CPU)
 - **GNU Binutils**: objcopy, strip
 - **GNU Make**: Build automation
+- **Python 3**: For offset generation (requires PyYAML: `pip install pyyaml`)
 - **Unix-like environment**: Linux, macOS, or WSL on Windows
 
 ### Target Platform
@@ -62,6 +66,21 @@ PS4 Kernel SDK/
 
 ## Building
 
+### Generate Offset Headers
+
+Before building, you need to generate the C header files from the YAML offset definitions:
+
+```bash
+# Generate all offset headers from YAML
+make offsets
+```
+
+This reads the YAML files in `offsets/` and generates:
+- `include/offsets/Offsets.h` - Main header with struct and utility functions
+- `include/offsets/offsets-XXX.h` - Individual firmware initialization functions
+
+**Note**: Offset headers are auto-generated and should not be edited directly. Modify the YAML files instead.
+
 ### Build All Components
 
 Build the complete SDK including libraries, loader, and samples:
@@ -70,14 +89,18 @@ Build the complete SDK including libraries, loader, and samples:
 make all
 ```
 
-This will compile:
-- CRT files (lib/)
-- Loader libraries (loader/)
-- Sample modules (samples/)
+This will:
+1. Generate offset headers (if needed)
+2. Compile CRT files (lib/)
+3. Build loader libraries (loader/)
+4. Build sample modules (samples/)
 
 ### Build Individual Components
 
 ```bash
+# Generate offset headers only
+make offsets
+
 # Build only CRT files
 make lib
 
@@ -95,19 +118,56 @@ make sample_payload   # Build userland payload with embedded module
 ### Clean Build Artifacts
 
 ```bash
+# Clean compiled objects and binaries
 make clean
+
+# Clean everything including generated headers
+make distclean
 ```
 
 ## Supported Firmware Versions
 
 The SDK currently supports automatic symbol resolution for:
 
-- **9.00** (offsets-900.h)
-- **12.02** (offsets-1202.h)
-- **12.50** (offsets-1250.h)
-- **13.00** (offsets-1300.h)
+- **9.00** (Build 178153) - `offsets/firmware-900.yaml`
+- **12.02** (Build 222806) - `offsets/firmware-1202.yaml`
+- **12.50** (Build 223219) - `offsets/firmware-1250.yaml`
+- **13.00** (Build 225997) - `offsets/firmware-1300.yaml`
 
-New firmware versions can be added by creating new offset header files in `include/offsets/` and updating the symbol resolver in `include/offsets/Offsets.h`.
+### Adding New Firmware Versions
+
+To add support for a new firmware version:
+
+1. **Create a new YAML file** in `offsets/` directory:
+   ```bash
+   cp offsets/firmware-1300.yaml offsets/firmware-XXXX.yaml
+   ```
+
+2. **Update firmware metadata**:
+   ```yaml
+   firmware:
+     version: "XX.XX"
+     build_number: XXXXXX
+     init_function: InitKernelXXXX
+   ```
+
+3. **Update all offsets** with values for the new firmware version. You can find these by:
+   - Analyzing the kernel binary with IDA Pro/Ghidra
+   - Using kernel debugging tools
+   - Referencing existing offset databases
+
+4. **Regenerate headers**:
+   ```bash
+   make offsets
+   ```
+
+5. **Test** with a kernel module on the target firmware
+
+The offset generation system automatically:
+- Creates the C struct definition
+- Generates initialization functions for each firmware
+- Updates firmware detection logic
+- Maintains proper type casting and array handling
 
 ## Examples
 

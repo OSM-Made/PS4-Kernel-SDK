@@ -29,3 +29,19 @@ build/
 # System files
 Thumbs.db
 desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+*.egg
+
+# Generated offset headers (regenerate with: make offsets)
+include/offsets/
