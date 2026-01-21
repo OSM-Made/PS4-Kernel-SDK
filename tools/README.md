@@ -58,8 +58,8 @@ The YAML offset files follow this structure:
 
 ```yaml
 firmware:
-  version: "X.XX"           # Human-readable version (e.g., "9.00")
-  build_number: XXXXXX      # Build number from kernel string
+  version: "X.XX"                # Human-readable version (e.g., "9.00")
+  build_number: XXXXXX           # Build number from kernel string
   init_function: InitKernelXXXX  # C function name
 
 offsets:
