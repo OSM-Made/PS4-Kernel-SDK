@@ -88,3 +88,16 @@ typedef struct
 
 #define ELF64_R_SYM(i)  ((i) >> 32)
 #define ELF64_R_TYPE(i) ((i) & 0xffffffffL)
+
+enum {
+    ET_NONE = 0,				// No file type
+    ET_REL = 1,					// Relocatable file
+    ET_EXEC = 2,				// Executable file
+    ET_DYN = 3,					// Shared object file
+    ET_CORE = 4,				// Core file
+    ET_LOPROC = 0xff00,			// Beginning of processor-specific codes
+    ET_HIPROC = 0xffff,			// Processor-specific
+    ET_SCE_EXEC = 0xFE00,
+    ET_SCE_EXEC_ASLR = 0xFE10,
+    ET_SCE_DYNAMIC = 0xFE18,
+};
