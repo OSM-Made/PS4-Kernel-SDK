@@ -650,6 +650,18 @@ offsets:
     category: TTY Redirector
 
 
+  # Extended Logging
+  - name: CallStackPrintfHook
+    offset: 0x0315EBE
+    type: void*
+    category: Extended Logging
+
+  - name: FaultAddressPrintfHook
+    offset: 0x0315CEC
+    type: void*
+    category: Extended Logging
+    
+
   # Kernel Patches
   - name: patch_memcpy
     offset: 0x002714BD

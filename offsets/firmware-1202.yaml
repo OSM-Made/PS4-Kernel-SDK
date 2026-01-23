@@ -648,6 +648,18 @@ offsets:
     offset: 0x01A7EDD8
     type: void*
     category: TTY Redirector
+    
+
+  # Extended Logging
+  - name: CallStackPrintfHook
+    offset: 0x016F77E
+    type: void*
+    category: Extended Logging
+
+  - name: FaultAddressPrintfHook
+    offset: 0x016F5AC
+    type: void*
+    category: Extended Logging
 
 
   # Kernel Patches
