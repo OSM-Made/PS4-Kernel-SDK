@@ -103,6 +103,8 @@ extern "C"
 	int (*vm_map_protect)(struct vm_map* map, uint64_t start, uint64_t end, int new_prot, bool set_max) = NULL;
 	int (*vm_map_find)(struct vm_map* map, uint64_t object, uint64_t offset, uint64_t* addr, uint64_t length, int find_space, int prot, int max, int cow, uint64_t a10, uint64_t a11);
 	int (*vm_map_set_name)(struct vm_map* map, uint64_t start, uint64_t end, char* name);
+	int (*vm_fault_disable_pagefaults)(void);
+	void (*vm_fault_enable_pagefaults)(int);
 	
 	/* Mutex Locks */
 	void (*mtx_lock_flags)(struct mtx* mutex, int flags) = NULL;
@@ -166,6 +168,7 @@ extern "C"
 		RESOLVE(dmamini_initialize_ioctl);
 		RESOLVE(faultin);
 		RESOLVE(wakeup);
+		
 
 		/* STD Lib */
 		RESOLVE(M_TEMP);
@@ -245,6 +248,8 @@ extern "C"
 		RESOLVE(vm_map_protect);
 		RESOLVE(vm_map_find);
 		RESOLVE(vm_map_set_name);
+		RESOLVE(vm_fault_disable_pagefaults);
+		RESOLVE(vm_fault_enable_pagefaults);
 
 		/* Mutex Locks */
 		RESOLVE(mtx_lock_flags);

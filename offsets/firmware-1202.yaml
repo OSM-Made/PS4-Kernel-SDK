@@ -116,7 +116,7 @@ offsets:
     category: Util
 
   - name: trap_fatalHook
-    offset: 0x0
+    offset: 0x0014AA50
     type: void*
     category: Util
 
@@ -360,6 +360,16 @@ offsets:
 
   - name: vm_map_set_name
     offset: 0x00302760
+    type: void*
+    category: Virtual Memory
+        
+  - name: vm_fault_disable_pagefaults
+    offset: 0x001E6420
+    type: void*
+    category: Virtual Memory
+
+  - name: vm_fault_enable_pagefaults
+    offset: 0x001E6450
     type: void*
     category: Virtual Memory
 

@@ -362,6 +362,16 @@ offsets:
     offset: 0x000870D0
     type: void*
     category: Virtual Memory
+    
+  - name: vm_fault_disable_pagefaults
+    offset: 0x00156C70
+    type: void*
+    category: Virtual Memory
+
+  - name: vm_fault_enable_pagefaults
+    offset: 0x00156CA0
+    type: void*
+    category: Virtual Memory
 
 
   # Mutex Locks
