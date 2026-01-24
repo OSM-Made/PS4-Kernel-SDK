@@ -31,6 +31,7 @@ extern "C" {
 	extern void (*dmamini_initialize_ioctl)();
 	extern void (*faultin)(struct proc* p);
 	extern void (*wakeup )(void*);
+	extern void (*DelayMilliseconds)(int milliseconds);
 
 	/* STD Lib */
 	extern void* M_TEMP;

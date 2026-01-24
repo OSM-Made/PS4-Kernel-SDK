@@ -24,6 +24,7 @@ extern "C"
 	void (*dmamini_initialize_ioctl)() = NULL;
 	void (*faultin)(struct proc* p);
 	void (*wakeup )(void*);
+	void (*DelayMilliseconds)(int milliseconds);
 
 	/* STD Lib */
 	void* M_TEMP = NULL;
@@ -168,7 +169,7 @@ extern "C"
 		RESOLVE(dmamini_initialize_ioctl);
 		RESOLVE(faultin);
 		RESOLVE(wakeup);
-		
+		RESOLVE(DelayMilliseconds);
 
 		/* STD Lib */
 		RESOLVE(M_TEMP);

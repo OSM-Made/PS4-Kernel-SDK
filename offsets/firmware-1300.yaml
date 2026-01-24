@@ -140,6 +140,11 @@ offsets:
     type: void*
     category: Util
 
+  - name: DelayMilliseconds
+    offset: 0x004BBB20
+    type: void*
+    category: Util
+
 
   # STD Lib
   - name: M_TEMP
