@@ -106,6 +106,8 @@ extern "C" {
 	extern int (*vm_map_delete)(struct vm_map* map, uint64_t start, uint64_t end);
 	extern int (*vm_map_insert)(struct vm_map* map, uint64_t object, uint64_t offset, uint64_t start, uint64_t end, int prot, int max, int cow);
 	extern int (*vm_map_protect)(struct vm_map* map, uint64_t start, uint64_t end, int new_prot, bool set_max);
+	extern int (*vm_map_find)(struct vm_map* map, uint64_t object, uint64_t offset, uint64_t* addr, uint64_t length, int find_space, int prot, int max, int cow, uint64_t a10, uint64_t a11);
+	extern int (*vm_map_set_name)(struct vm_map* map, uint64_t start, uint64_t end, char* name);
 
 	/* Mutex Locks */
 	extern void (*mtx_lock_flags)(struct mtx* mutex, int flags);

@@ -13,7 +13,7 @@ all: crt0.o crt1.o
 crt0.o: crt0.s
 	$(AS) $(INCLUDE) -c $< -o $@
 
-crt1.o: crt1.c
+crt1.o: crt1.cpp
 	$(CC) $(INCLUDE) $(CFLAGS) -c $< -o $@
 
 clean:

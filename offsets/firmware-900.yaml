@@ -343,6 +343,16 @@ offsets:
     type: void*
     category: Virtual Memory
 
+  - name: vm_map_find
+    offset: 0x0007F000
+    type: void*
+    category: Virtual Memory
+
+  - name: vm_map_set_name
+    offset: 0x000870D0
+    type: void*
+    category: Virtual Memory
+
 
   # Mutex Locks
   - name: mtx_lock_flags

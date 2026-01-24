@@ -3,8 +3,8 @@
 
 #define RESOLVE(var) var = (decltype(var))(void*)(g_KernelAddrs.var)
 
-extern "C" {
-
+extern "C" 
+{
 	/* Util */
 	struct sysentvec* sysvec = NULL;
 	struct prison* prison0 = NULL;
@@ -99,7 +99,9 @@ extern "C" {
 	int (*vm_map_delete)(struct vm_map* map, uint64_t start, uint64_t end) = NULL;
 	int (*vm_map_insert)(struct vm_map* map, uint64_t object, uint64_t offset, uint64_t start, uint64_t end, int prot, int max, int cow) = NULL;
 	int (*vm_map_protect)(struct vm_map* map, uint64_t start, uint64_t end, int new_prot, bool set_max) = NULL;
-
+	int (*vm_map_find)(struct vm_map* map, uint64_t object, uint64_t offset, uint64_t* addr, uint64_t length, int find_space, int prot, int max, int cow, uint64_t a10, uint64_t a11);
+	int (*vm_map_set_name)(struct vm_map* map, uint64_t start, uint64_t end, char* name);
+	
 	/* Mutex Locks */
 	void (*mtx_lock_flags)(struct mtx* mutex, int flags) = NULL;
 	void (*mtx_unlock_flags)(struct mtx* mutex, int flags) = NULL;
@@ -237,6 +239,7 @@ extern "C" {
 		RESOLVE(vm_map_delete);
 		RESOLVE(vm_map_insert);
 		RESOLVE(vm_map_protect);
+		RESOLVE(vm_map_find);
 
 		/* Mutex Locks */
 		RESOLVE(mtx_lock_flags);

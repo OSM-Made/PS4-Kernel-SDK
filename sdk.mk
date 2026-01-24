@@ -4,7 +4,8 @@ OBJCOPY   := objcopy
 STRIP     := strip
 ODIR      := build
 SDIR      := source
-IDIR	  := include
+IDIR      := include
+RDIR      ?= resources
 SDK_INCLUDE := $(SDK_ROOT)/include
 SDK_LIB     := $(SDK_ROOT)/lib
 SDK_LD      := $(SDK_ROOT)/ld
@@ -23,25 +24,52 @@ endif
 
 CFILES    := $(shell find $(SDIR) -name \*.cpp 2>/dev/null)
 OBJS      := $(patsubst $(SDIR)/%.cpp, $(ODIR)/%.o, $(CFILES))
+
+# Binary resources support - automatically pack all files from RDIR
+RFILES    := $(shell find $(RDIR) -type f 2>/dev/null)
+RESOURCE_OBJS := $(patsubst $(RDIR)/%,$(ODIR)/resources/%.o,$(RFILES))
+
 TARGET    ?= $(shell basename "$(CURDIR)").elf
 TARGET_PATH := $(OUTPUT_DIR)/$(TARGET)
+
 MODULE_NAME    ?= $(basename $(TARGET))
 MODULE_VERSION ?= 1.0.0
 MODULE_AUTHOR  ?= Unknown
 MODULE_DESC    ?= No description provided
+
 MODNAME_OBJ := $(ODIR)/.modinfo.o
 
 # Detect number of CPU cores for parallel compilation
 NPROCS := $(shell nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || echo 1)
 MAKEFLAGS += -j$(NPROCS)
 
-$(TARGET_PATH): $(PCH_OUTPUT) $(ODIR) $(OBJS) $(MODNAME_OBJ)
+$(TARGET_PATH): $(PCH_OUTPUT) $(ODIR) $(OBJS) $(RESOURCE_OBJS) $(MODNAME_OBJ)
 	@mkdir -p $(OUTPUT_DIR)
-	$(CC) $(CRTBEGIN) $(MODNAME_OBJ) $(OBJS) -o $(TARGET_PATH) $(LFLAGS)
+	$(CC) $(CRTBEGIN) $(MODNAME_OBJ) $(OBJS) $(RESOURCE_OBJS) -o $(TARGET_PATH) $(LFLAGS)
 
 $(ODIR)/%.o: $(SDIR)/%.cpp $(PCH_OUTPUT)
 	@mkdir -p $(dir $@)
 	$(CC) -c -o $@ $< $(CFLAGS) $(PCH_FLAG)
+
+# Rule to pack binary resources from RDIR
+$(ODIR)/resources/%.o: $(RDIR)/% | $(ODIR)
+	@mkdir -p $(dir $@)
+	$(eval BASENAME := $(basename $(notdir $<)))
+	$(eval ORIG_START := _binary_$(subst -,_,$(subst .,_,$(subst /,_,$<)))_start)
+	$(eval ORIG_END := _binary_$(subst -,_,$(subst .,_,$(subst /,_,$<)))_end)
+	$(eval ORIG_SIZE := _binary_$(subst -,_,$(subst .,_,$(subst /,_,$<)))_size)
+	$(eval NEW_START := _binary_$(subst -,_,$(subst .,_,$(BASENAME)))_start)
+	$(eval NEW_END := _binary_$(subst -,_,$(subst .,_,$(BASENAME)))_end)
+	$(eval NEW_SIZE := _binary_$(subst -,_,$(subst .,_,$(BASENAME)))_size)
+	$(OBJCOPY) -I binary -O elf64-x86-64 -B i386:x86-64 \
+		--rename-section .data=.rodata,alloc,load,readonly,data,contents \
+		--add-section .note.GNU-stack=/dev/null \
+		--set-section-flags .note.GNU-stack=noload,readonly \
+		--redefine-sym $(ORIG_START)=$(NEW_START) \
+		--redefine-sym $(ORIG_END)=$(NEW_END) \
+		--redefine-sym $(ORIG_SIZE)=$(NEW_SIZE) \
+		$< $@
+	@echo "Packed resource: $(notdir $<) as $(NEW_START)"
 
 # Generate module metadata object
 $(MODNAME_OBJ): | $(ODIR)
