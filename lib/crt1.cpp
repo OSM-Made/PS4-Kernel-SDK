@@ -244,6 +244,7 @@ extern "C"
 		RESOLVE(vm_map_insert);
 		RESOLVE(vm_map_protect);
 		RESOLVE(vm_map_find);
+		RESOLVE(vm_map_set_name);
 
 		/* Mutex Locks */
 		RESOLVE(mtx_lock_flags);

@@ -15,3 +15,5 @@
 #include "Types/EventHandler.h"
 #include "Types/Sysctl.h"
 #include "Types/Homebrew.h"
+#include "types/Segments.h"
+#include "types/PSl.h"

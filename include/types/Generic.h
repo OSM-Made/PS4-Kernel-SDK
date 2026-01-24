@@ -107,6 +107,7 @@ typedef uint32_t uid_t;
 typedef	__uint16_t	mode_t;
 typedef int64_t time_t;
 typedef long suseconds_t;
+typedef	__register_t	register_t;
 
 struct iovec {
 	void* iov_base;  // Pointer to the data
