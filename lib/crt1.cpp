@@ -22,6 +22,8 @@ extern "C"
 	int (*vn_fullpath)(struct thread* td, struct vnode* vp, char** retbuf, char** freebuf) = NULL;
 	int (*fuse_loader)(void* m, int op, void* arg) = NULL;
 	void (*dmamini_initialize_ioctl)() = NULL;
+	void (*faultin)(struct proc* p);
+	void (*wakeup )(void*);
 
 	/* STD Lib */
 	void* M_TEMP = NULL;
@@ -162,6 +164,8 @@ extern "C"
 		RESOLVE(vn_fullpath);
 		RESOLVE(fuse_loader);
 		RESOLVE(dmamini_initialize_ioctl);
+		RESOLVE(faultin);
+		RESOLVE(wakeup);
 
 		/* STD Lib */
 		RESOLVE(M_TEMP);

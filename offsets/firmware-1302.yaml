@@ -129,6 +129,16 @@ offsets:
     offset: 0x0036E2F0
     type: void*
     category: Util
+    
+  - name: faultin
+    offset: 0x003D480
+    type: void*
+    category: Util
+
+  - name: wakeup
+    offset: 0x001402B0
+    type: void*
+    category: Util
 
 
   # STD Lib

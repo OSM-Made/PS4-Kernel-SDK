@@ -29,6 +29,8 @@ extern "C" {
 	extern int (*vn_fullpath)(struct thread* td, struct vnode* vp, char** retbuf, char** freebuf);
 	extern int (*fuse_loader)(void* m, int op, void* arg);
 	extern void (*dmamini_initialize_ioctl)();
+	extern void (*faultin)(struct proc* p);
+	extern void (*wakeup )(void*);
 
 	/* STD Lib */
 	extern void* M_TEMP;

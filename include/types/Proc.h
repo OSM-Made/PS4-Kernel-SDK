@@ -84,9 +84,11 @@ TYPE_FIELD(LIST_ENTRY(proc) p_list, 0);     // Link to the global process list
 TYPE_FIELD(TAILQ_HEAD(, thread) p_threads, 0x10); // List of threads in this process
 TYPE_FIELD(struct ucred* p_ucred, 0x40);  // Pointer to the process credentials
 TYPE_FIELD(struct filedesc* p_fd, 0x48); // Pointer to the file descriptor table
+TYPE_FIELD(int p_flag, 0xA8);
 TYPE_FIELD(int p_pid, 0xB0);            // Process ID
-TYPE_FIELD(struct mtx p_lock, 0xF8);           // Process lock
+TYPE_FIELD(struct mtx p_mtx, 0xF8);           // Process lock
 TYPE_FIELD(struct vmspace* p_vmspace, 0x168); // Pointer to the address space
+TYPE_FIELD(uint32_t p_lock, 0x2C0);
 TYPE_FIELD(struct dynlib* p_dynlib, 0x340); // Pointer to dynamic library info
 TYPE_FIELD(char titleId[10], 0x390);    // Application Title ID
 TYPE_FIELD(char contentid[64], 0x3D4); // Application Content ID

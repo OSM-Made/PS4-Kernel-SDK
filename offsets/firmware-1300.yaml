@@ -130,6 +130,16 @@ offsets:
     type: void*
     category: Util
 
+  - name: faultin
+    offset: 0x0003D480
+    type: void*
+    category: Util
+
+  - name: wakeup
+    offset: 0x001402B0
+    type: void*
+    category: Util
+
 
   # STD Lib
   - name: M_TEMP
