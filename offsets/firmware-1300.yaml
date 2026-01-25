@@ -893,6 +893,21 @@ offsets:
     type: void*
     category: Kernel Patches
 
+  - name: patch_PrxPathCheck1
+    offset: 0x00474C15
+    type: void*
+    category: Kernel Patches
+    
+  - name: patch_PrxPathCheck2
+    offset: 0x00474C1E
+    type: void*
+    category: Kernel Patches
+
+  - name: patch_PrxPathCheck3
+    offset: 0x00474C27
+    type: void*
+    category: Kernel Patches
+
   - name: mdbgAssistMode
     type: uint64_t[22]
     category: Kernel Patches
