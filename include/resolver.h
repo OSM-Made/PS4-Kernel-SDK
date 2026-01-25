@@ -31,7 +31,7 @@ extern "C" {
 	extern void (*dmamini_initialize_ioctl)();
 	extern void (*faultin)(struct proc* p);
 	extern void (*wakeup )(void*);
-	extern void (*DelayMilliseconds)(int milliseconds);
+	extern void (*DELAY)(int usec);
 
 	/* STD Lib */
 	extern void* M_TEMP;
@@ -144,6 +144,9 @@ extern "C" {
 	extern KernelAddrs g_KernelAddrs;
 	extern uint64_t g_KernelBase;
 	extern const char* g_DetectedFirmware;
+
+	void DelayMilliseconds(int msec);
+	void DelayMicroseconds(int usec);
 
 #ifdef __cplusplus
 }

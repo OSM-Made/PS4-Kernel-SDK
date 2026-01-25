@@ -79,6 +79,15 @@ struct prison
 
 };
 
+enum td_states 
+{
+    TDS_INACTIVE = 0x0,
+    TDS_INHIBITED,
+    TDS_CAN_RUN,
+    TDS_RUNQ,
+    TDS_RUNNING
+};
+
 TYPE_BEGIN(struct proc, 0x1000); // XXX: random, don't use directly without fixing it
 TYPE_FIELD(LIST_ENTRY(proc) p_list, 0);     // Link to the global process list
 TYPE_FIELD(TAILQ_HEAD(, thread) p_threads, 0x10); // List of threads in this process
@@ -102,10 +111,11 @@ TYPE_BEGIN(struct thread, 0x3D8); // XXX: random, don't use directly without fix
 TYPE_FIELD(struct mtx* volatile td_lock, 0); // Thread lock pointer
 TYPE_FIELD(struct proc* td_proc, 8);      // Pointer to the parent process
 TYPE_FIELD(TAILQ_ENTRY(thread) td_plist, 0x10); // Link in the process's thread list
-TYPE_FIELD(int tid, 0x88);              // Thread ID
+TYPE_FIELD(int td_tid, 0x88);              // Thread ID
 TYPE_FIELD(int td_pinned, 0x12C);       // Pinning state (e.g., to a CPU)
 TYPE_FIELD(struct ucred* td_ucred, 0x130); // Pointer to the thread credentials
 TYPE_FIELD(char td_name[32], 0x284);     // Thread name (for debugging)
+TYPE_FIELD(int td_state, 0x394);
 TYPE_FIELD(uint64_t td_retval[2], 0x398); // Return values from a syscall/function
 TYPE_FIELD(uint16_t td_priority, 0x380); // Scheduling priority
 TYPE_END();
@@ -156,3 +166,7 @@ LIST_HEAD(proclist, proc);
 #define	P_STOPPED	(P_STOPPED_SIG|P_STOPPED_SINGLE|P_STOPPED_TRACE)
 #define	P_SHOULDSTOP(p)	((p)->p_flag & P_STOPPED)
 #define	P_KILLED(p)	((p)->p_flag & P_WKILLED)
+
+#define	FOREACH_THREAD_IN_PROC(p, td)					\
+	TAILQ_FOREACH((td), &(p)->p_threads, td_plist)
+    

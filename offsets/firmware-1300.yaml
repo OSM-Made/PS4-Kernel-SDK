@@ -140,8 +140,8 @@ offsets:
     type: void*
     category: Util
 
-  - name: DelayMilliseconds
-    offset: 0x004BBB20
+  - name: DELAY
+    offset: 0x0015FB10
     type: void*
     category: Util
 
