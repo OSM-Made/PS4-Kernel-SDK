@@ -474,62 +474,62 @@ offsets:
 
   # FSelfs
   - name: sceSblAuthMgrGetSelfInfo
-    offset: 0x0
+    offset: 0x0063D8E0
     type: void*
     category: FSelfs
 
   - name: sceSblAuthMgrSmStart
-    offset: 0x0
+    offset: 0x0063E470
     type: void*
     category: FSelfs
 
   - name: sceSblAuthMgrVerifyHeader
-    offset: 0x0
+    offset: 0x0063D100
     type: void*
     category: FSelfs
 
   - name: sbl_drv_msg_mtx
-    offset: 0x0
+    offset: 0x002647358
     type: void*
     category: FSelfs
 
   - name: gpu_va_page_list
-    offset: 0x0
+    offset: 0x002647350
     type: void*
     category: FSelfs
 
   - name: mini_syscore_self_binary
-    offset: 0x0
+    offset: 0x00153D6C8
     type: void*
     category: FSelfs
 
   - name: sceSblAuthMgrVerifyHeaderHook1
-    offset: 0x0
+    offset: 0x006431A6
     type: void*
     category: FSelfs
 
   - name: sceSblAuthMgrVerifyHeaderHook2
-    offset: 0x0
+    offset: 0x00643E89
     type: void*
     category: FSelfs
 
   - name: SceSblAuthMgrIsLoadable2Hook
-    offset: 0x0
+    offset: 0x00642A0E
     type: void*
     category: FSelfs
 
   - name: SceSblAuthMgrSmLoadSelfSegment_Mailbox
-    offset: 0x0
+    offset: 0x006408BD
     type: void*
     category: FSelfs
 
   - name: SceSblAuthMgrSmLoadSelfBlock_Mailbox
-    offset: 0x0
+    offset: 0x006414F8
     type: void*
     category: FSelfs
 
   - name: sceSblAuthMgrIsLoadable__sceSblACMgrGetPathId
-    offset: 0x0
+    offset: 0x006428BC
     type: void*
     category: FSelfs
 
