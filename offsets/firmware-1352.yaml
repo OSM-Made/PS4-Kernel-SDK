@@ -839,7 +839,7 @@ offsets:
     category: Kernel Patches
 
   - name: patch_debuglogs
-    offset: 0x0
+    offset: 0x002E05F7
     type: void*
     category: Kernel Patches
 
