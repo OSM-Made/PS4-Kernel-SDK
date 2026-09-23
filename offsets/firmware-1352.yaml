@@ -536,112 +536,112 @@ offsets:
 
   # Fake Pkgs
   - name: sbl_keymgr_buf_gva
-    offset: 0x0
+    offset: 0x00266C808
     type: void*
     category: Fake Pkgs
 
   - name: sbl_keymgr_buf_va
-    offset: 0x0
+    offset: 0x00266C000
     type: void*
     category: Fake Pkgs
 
   - name: sbl_keymgr_key_slots
-    offset: 0x0
+    offset: 0x002668040
     type: void*
     category: Fake Pkgs
 
   - name: sbl_keymgr_key_rbtree
-    offset: 0x0
+    offset: 0x002668050
     type: void*
     category: Fake Pkgs
 
   - name: sbl_pfs_sx
-    offset: 0x0
+    offset: 0x00265C080
     type: void*
     category: Fake Pkgs
 
   - name: fpu_ctx
-    offset: 0x0
+    offset: 0x0026542C0
     type: void*
     category: Fake Pkgs
 
   - name: fpu_kern_enter
-    offset: 0x0
+    offset: 0x001E0100
     type: void*
     category: Fake Pkgs
 
   - name: fpu_kern_leave
-    offset: 0x0
+    offset: 0x001E01C0
     type: void*
     category: Fake Pkgs
 
   - name: Sha256Hmac
-    offset: 0x0
+    offset: 0x001F8E60
     type: void*
     category: Fake Pkgs
 
   - name: sceSblDriverSendMsg
-    offset: 0x0
+    offset: 0x0061C870
     type: void*
     category: Fake Pkgs
 
   - name: sceSblPfsSetKeys
-    offset: 0x0
+    offset: 0x0626FB0
     type: void*
     category: Fake Pkgs
 
   - name: RsaesPkcs1v15Dec2048CRT
-    offset: 0x0
+    offset: 0x0021BD20
     type: void*
     category: Fake Pkgs
 
   - name: AesCbcCfb128Encrypt
-    offset: 0x0
+    offset: 0x003415F0
     type: void*
     category: Fake Pkgs
 
   - name: AesCbcCfb128Decrypt
-    offset: 0x0
+    offset: 0x00341820
     type: void*
     category: Fake Pkgs
 
   - name: sceSblKeymgrSetKeyForPfs
-    offset: 0x0
+    offset: 0x0062B900
     type: void*
     category: Fake Pkgs
 
   - name: sceSblKeymgrClearKey
-    offset: 0x0
+    offset: 0x0062BC40
     type: void*
     category: Fake Pkgs
 
   - name: sceSblKeymgrSetKeyStorage
-    offset: 0x0
+    offset: 0x00625010
     type: void*
     category: Fake Pkgs
 
   - name: SceSblDriverSendMsgHook
-    offset: 0x0
+    offset: 0x00625113
     type: void*
     category: Fake Pkgs
 
   - name: SceSblPfsSetKeysHook
-    offset: 0x0
+    offset: 0x006A3739
     type: void*
     category: Fake Pkgs
 
   - name: NpdrmDecryptIsolatedRifHook
-    offset: 0x0
+    offset: 0x0064CE10
     type: void*
     category: Fake Pkgs
 
   - name: NpdrmDecryptRifNewHook
-    offset: 0x0
+    offset: 0x0064DBDE
     type: void*
     category: Fake Pkgs
 
   - name: SceSblKeymgrInvalidateKeySxXlockHook
-    offset: 0x0
+    offset: 0x0062CABD
     type: void*
     category: Fake Pkgs
 
