@@ -133,6 +133,7 @@ The SDK currently supports automatic symbol resolution for:
 - **12.02** (Build 222806) - `offsets/firmware-1202.yaml`
 - **12.50** (Build 223219) - `offsets/firmware-1250.yaml`
 - **13.00** (Build 225997) - `offsets/firmware-1300.yaml`
+- **13.52** (Build 228995) - `offsets/firmware-1352.yaml`
 
 ### Adding New Firmware Versions
 
