@@ -61,7 +61,7 @@ PS4 Kernel SDK/
 
 ### Target Platform
 
-- PlayStation 4 console running firmware version 9.00, 12.02, 12.50, or 13.00
+- PlayStation 4 console running firmware version 9.00, 12.02, 12.50, 13.00, or 13.52
 - Jailbroken system capable of executing custom payloads
 
 ## Building
