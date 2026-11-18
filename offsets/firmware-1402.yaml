@@ -484,7 +484,7 @@ offsets:
     category: FSelfs
 
   - name: sceSblAuthMgrVerifyHeader
-    offset: 0x0063D8C0
+    offset: 0x0063D840
     type: void*
     category: FSelfs
 
@@ -504,7 +504,7 @@ offsets:
     category: FSelfs
 
   - name: sceSblAuthMgrVerifyHeaderHook1
-    offset: 0x00643DE4
+    offset: 0x006438E6
     type: void*
     category: FSelfs
 
@@ -621,7 +621,7 @@ offsets:
     category: Fake Pkgs
 
   - name: SceSblDriverSendMsgHook
-    offset: 0x00623787
+    offset: 0x00625853
     type: void*
     category: Fake Pkgs
 
@@ -631,7 +631,7 @@ offsets:
     category: Fake Pkgs
 
   - name: NpdrmDecryptIsolatedRifHook
-    offset: 0x0064E063
+    offset: 0x0064D550
     type: void*
     category: Fake Pkgs
 
