@@ -509,7 +509,7 @@ offsets:
     category: FSelfs
 
   - name: sceSblAuthMgrVerifyHeaderHook2
-    offset: 0x00643DE4
+    offset: 0x006445C9
     type: void*
     category: FSelfs
 
