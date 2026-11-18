@@ -586,7 +586,7 @@ offsets:
     category: Fake Pkgs
 
   - name: sceSblPfsSetKeys
-    offset: 0x00625750
+    offset: 0x006276F0
     type: void*
     category: Fake Pkgs
 
@@ -626,7 +626,7 @@ offsets:
     category: Fake Pkgs
 
   - name: SceSblPfsSetKeysHook
-    offset: 0x0062C854
+    offset: 0x00686A0E
     type: void*
     category: Fake Pkgs
 
