@@ -430,12 +430,12 @@ offsets:
 
   # Flash & NVS
   - name: icc_nvs_read
-    offset: 0x0
+    offset: 0x00A5BD0
     type: void*
     category: Flash & NVS
 
   - name: icc_nvs_write
-    offset: 0x0
+    offset: 0x00A5A10
     type: void*
     category: Flash & NVS
 
