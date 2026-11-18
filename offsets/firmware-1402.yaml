@@ -499,37 +499,37 @@ offsets:
     category: FSelfs
 
   - name: mini_syscore_self_binary
-    offset: 0x0
+    offset: 0x0153D6C8
     type: void*
     category: FSelfs
 
   - name: sceSblAuthMgrVerifyHeaderHook1
-    offset: 0x006433D0
+    offset: 0x00643DE4
     type: void*
     category: FSelfs
 
   - name: sceSblAuthMgrVerifyHeaderHook2
-    offset: 0x00644470
+    offset: 0x00643DE4
     type: void*
     category: FSelfs
 
   - name: SceSblAuthMgrIsLoadable2Hook
-    offset: 0x00640730
+    offset: 0x0064314E
     type: void*
     category: FSelfs
 
   - name: SceSblAuthMgrSmLoadSelfSegment_Mailbox
-    offset: 0x00640D70
+    offset: 0x00640FFD
     type: void*
     category: FSelfs
 
   - name: SceSblAuthMgrSmLoadSelfBlock_Mailbox
-    offset: 0x006411E0
+    offset: 0x00641C38
     type: void*
     category: FSelfs
 
   - name: sceSblAuthMgrIsLoadable__sceSblACMgrGetPathId
-    offset: 0x00642FC0
+    offset: 0x00642FFC
     type: void*
     category: FSelfs
 
@@ -561,7 +561,7 @@ offsets:
     category: Fake Pkgs
 
   - name: fpu_ctx
-    offset: 0x0
+    offset: 0x026542C0
     type: void*
     category: Fake Pkgs
 
@@ -591,7 +591,7 @@ offsets:
     category: Fake Pkgs
 
   - name: RsaesPkcs1v15Dec2048CRT
-    offset: 0x0
+    offset: 0x0021C3D0
     type: void*
     category: Fake Pkgs
 
@@ -621,7 +621,7 @@ offsets:
     category: Fake Pkgs
 
   - name: SceSblDriverSendMsgHook
-    offset: 0x006257FA
+    offset: 0x00623787
     type: void*
     category: Fake Pkgs
 
@@ -631,12 +631,12 @@ offsets:
     category: Fake Pkgs
 
   - name: NpdrmDecryptIsolatedRifHook
-    offset: 0x00650270
+    offset: 0x0064E063
     type: void*
     category: Fake Pkgs
 
   - name: NpdrmDecryptRifNewHook
-    offset: 0x006505F0
+    offset: 0x0064E31E
     type: void*
     category: Fake Pkgs
 
