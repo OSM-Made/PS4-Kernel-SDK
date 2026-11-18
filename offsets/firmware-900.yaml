@@ -908,6 +908,11 @@ offsets:
     type: void*
     category: Kernel Patches
 
+  - name: patch_printf_regmgr_call
+    offset: 0x004F6187
+    type: void*
+    category: Kernel Patches
+
   - name: mdbgAssistMode
     type: uint64_t[22]
     category: Kernel Patches

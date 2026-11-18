@@ -36,6 +36,8 @@ make regenerate-offsets   # Force regeneration
 - `include/offsets/offsets-1250.h` - 12.50 offsets
 - `include/offsets/offsets-1300.h` - 13.00 offsets
 - `include/offsets/offsets-1352.h` - 13.52 offsets
+- `include/offsets/offsets-14.00.h` - 14.00 offsets
+- `include/offsets/offsets-14.02.h` - 14.02 offsets
 
 ### convert_offsets_to_yaml.py
 

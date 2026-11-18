@@ -9,7 +9,7 @@ The PS4 Kernel SDK enables developers to create loadable kernel modules that can
 ### Key Features
 
 - **Automatic Symbol Resolution**: Detects firmware version and resolves kernel symbols automatically
-- **Multi-Firmware Support**: Compatible with firmware versions 9.00, 12.02, 12.50, 13.00, and 13.52
+- **Multi-Firmware Support**: Compatible with firmware versions 9.00, 12.02, 12.50, 13.00, 13.52, 14.00 and 14.02
 - **Self-Contained Modules**: Modules are standalone ELF files that can be loaded from userland
 - **Module Metadata System**: Built-in support for module name, version, author, and description
 - **Kernel ELF Loader**: Includes a loader library for loading modules from userland payloads
@@ -61,7 +61,7 @@ PS4 Kernel SDK/
 
 ### Target Platform
 
-- PlayStation 4 console running firmware version 9.00, 12.02, 12.50, 13.00, or 13.52
+- PlayStation 4 console running firmware version 9.00, 12.02, 12.50, 13.00, 13.52, 14.00, or 14.02
 - Jailbroken system capable of executing custom payloads
 
 ## Building
@@ -134,6 +134,8 @@ The SDK currently supports automatic symbol resolution for:
 - **12.50** (Build 223219) - `offsets/firmware-1250.yaml`
 - **13.00** (Build 225997) - `offsets/firmware-1300.yaml`
 - **13.52** (Build 228995) - `offsets/firmware-1352.yaml`
+- **14.00** (Build 229779) - `offsets/firmware-14.00.yaml`
+- **14.02** (Build 230516) - `offsets/firmware-14.02.yaml`
 
 ### Adding New Firmware Versions
 
