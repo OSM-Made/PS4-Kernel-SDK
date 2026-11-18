@@ -499,7 +499,7 @@ offsets:
     category: FSelfs
 
   - name: mini_syscore_self_binary
-    offset: 0x0
+    offset: 0x00153D6C8
     type: void*
     category: FSelfs
 
@@ -561,7 +561,7 @@ offsets:
     category: Fake Pkgs
 
   - name: fpu_ctx
-    offset: 0x0
+    offset: 0x0026542C0
     type: void*
     category: Fake Pkgs
 
@@ -591,7 +591,7 @@ offsets:
     category: Fake Pkgs
 
   - name: RsaesPkcs1v15Dec2048CRT
-    offset: 0x0
+    offset: 0x0021C3D0
     type: void*
     category: Fake Pkgs
 
