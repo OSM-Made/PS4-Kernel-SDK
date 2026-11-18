@@ -474,17 +474,17 @@ offsets:
 
   # FSelfs
   - name: sceSblAuthMgrGetSelfInfo
-    offset: 0x0
+    offset: 0x0063E020
     type: void*
     category: FSelfs
 
   - name: sceSblAuthMgrSmStart
-    offset: 0x0
+    offset: 0x0063EBB0
     type: void*
     category: FSelfs
 
   - name: sceSblAuthMgrVerifyHeader
-    offset: 0x0
+    offset: 0x0063D840
     type: void*
     category: FSelfs
 
@@ -499,7 +499,7 @@ offsets:
     category: FSelfs
 
   - name: mini_syscore_self_binary
-    offset: 0x0
+    offset: 0x0153D6C8
     type: void*
     category: FSelfs
 
